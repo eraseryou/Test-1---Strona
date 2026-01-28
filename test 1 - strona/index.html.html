@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hybrydowy System Żywienia - elastyczne podejście do żywienia bez wyrzeczeń. 15-30 minut w kuchni, 3 warianty budżetowe, dla Twoich potrzeb.">
+    <meta name="keywords" content="system żywieniowy, dieta, odchudzanie, elastyczne żywienie, bez liczenia kalorii">
+    <title>Hybrydowy System Żywienia - Zmień Życie Bez Wyrzeczeń</title>
+    
+    <style>
+        /* ==================== CSS VARIABLES ==================== */
+        :root {
+            --primary-green: #10b981;
+            --dark-green: #047857;
+            --orange: #f97316;
+            --dark-orange: #ea580c;
+            --light-mint: #a7f3d0;
+            --dark-text: #1f2937;
+            --light-bg: #f9fafb;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+        }
+        
+        /* ==================== GLOBAL RESET ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+        
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes popInUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(40px);
+            }
+            60% {
+                transform: scale(1.05) translateY(-5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+        
+        @keyframes borderPulse {
+            0%, 100% {
+                border-color: var(--primary-green);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+            50% {
+                border-color: var(--orange);
+                box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.5;
+            }
+        }
+        
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+        }
+        
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 30px rgba(249, 115, 22, 0.6);
+            }
+        }
+        
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes fadeInBlur {
+            from {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+        
+        @keyframes flipIn {
+            from {
+                transform: perspective(400px) rotateX(-90deg);
+                opacity: 0;
+            }
+            to {
+                transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+        
+        /* ==================== INFINITY SPACE ZOOM ANIMATION ==================== */
+        @keyframes infinitySpaceZoom {
+            0% {
+                transform: scale(1) translate(0, 0);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5) translate(-5%, -5%);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(2) translate(-10%, -10%);
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes infinitySpaceZoomLayer2 {
+            0% {
+                transform: scale(1.2) translate(0, 0) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.8) translate(-8%, -8%) rotate(180deg);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(2.5) translate(-15%, -15%) rotate(360deg);
+                opacity: 0.4;
+            }
+        }
+        
+        @keyframes infinitySpaceZoomLayer3 {
+            0% {
+                transform: scale(0.8) translate(0, 0) rotate(0deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.3) translate(5%, 5%) rotate(-180deg);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(1.8) translate(10%, 10%) rotate(-360deg);
+                opacity: 0.2;
+            }
+        }
+        
+        /* ==================== PROGRESS BAR ==================== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 9999;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-green), var(--orange));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        /* ==================== BACK TO TOP BUTTON ==================== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9998;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: slideInRight 0.5s ease;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--shadow-hover);
+        }
+        
+        /* ==================== CONTAINER ==================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ==================== SECTION TITLE ==================== */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            position: relative;
+        }
+        
+        .section-title.letter-animate span {
+            display: inline-block;
+            opacity: 0;
+            animation: popInUp 0.5s ease forwards;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ==================== HERO SECTION - INFINITY SPACE ZOOM ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px 60px;
+        }
+        
+        /* Layer 1 - Base cosmic background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background-image: url('HERO.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            animation: infinitySpaceZoom 30s ease-in-out infinite;
+            transform-origin: center center;
+            will-change: transform, opacity;
+            z-index: 0;
+        }
+        
+        /* Layer 2 - Secondary cosmic layer for depth */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -30%;
+            width: 160%;
+            height: 160%;
+            background-image: url('HERO.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            opacity: 0.5;
+            animation: infinitySpaceZoomLayer2 40s ease-in-out infinite;
+            transform-origin: center center;
+            will-change: transform, opacity;
+            z-index: 1;
+            filter: blur(8px) brightness(0.7);
+        }
+        
+        /* Radial gradient overlay for text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0, 0, 0, 0.3) 0%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInBlur 1s ease;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8),
+                         0 2px 10px rgba(16, 185, 129, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .hero-feature::before {
+            content: '✓';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: rgba(16, 185, 129, 0.8);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--orange), var(--dark-orange));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.6s both, borderPulse 2s infinite;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 3;
+        }
+        
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* ==================== PROBLEM SECTION - VIDEO BACKGROUND ==================== */
+        .problem {
+            padding: 100px 20px;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Video background */
+        .problem-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.18;
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(2px) brightness(1.1) saturate(1.3);
+        }
+        
+        /* White overlay for text readability */
+        .problem::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                rgba(255,255,255,0.88) 0%, 
+                rgba(255,255,255,0.92) 30%,
+                rgba(255,255,255,0.92) 70%,
+                rgba(255,255,255,0.88) 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .problem .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .info-block {
+            background: rgba(249, 250, 251, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-block.animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .info-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .info-block:hover::before {
+            left: 100%;
+        }
+        
+        .info-block:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 8px 25px var(--shadow-hover);
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        .info-block-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-block-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .info-block-text {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        /* ==================== SOLUTION SECTION ==================== */
+        .solution {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--light-mint) 0%, var(--white) 100%);
+            position: relative;
+        }
+        
+        .solution::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .solution-block {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            opacity: 0;
+        }
+        
+        .solution-block.animate {
+            animation: popInUp 0.6s ease forwards;
+        }
+        
+        .solution-block:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px var(--shadow-hover);
+        }
+        
+        .solution-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .solution-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-green);
+        }
+        
+        .solution-text {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        /* ==================== HOW IT WORKS SECTION ==================== */
+        .how-works {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            opacity: 0;
+        }
+        
+        .step.animate {
+            animation: slideInLeft 0.6s ease forwards;
+        }
+        
+        .step:nth-child(even).animate {
+            animation: slideInRight 0.6s ease forwards;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .step-text {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        /* ==================== FOR WHO SECTION ==================== */
+        .for-who {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+        }
+        
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .target-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            opacity: 0;
+            border-left: 4px solid var(--primary-green);
+        }
+        
+        .target-card.animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .target-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 30px var(--shadow-hover);
+            border-left-color: var(--orange);
+        }
+        
+        .target-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .target-text {
+            color: var(--dark-text);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        /* ==================== OFFER SECTION ==================== */
+        .offer {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .offer-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .offer-box {
+            background: white;
+            color: var(--dark-text);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            opacity: 0;
+            perspective: 1000px;
+        }
+        
+        .offer-box.animate {
+            animation: flipIn 0.8s ease forwards;
+        }
+        
+        .offer-box:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .offer-box-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+            text-align: center;
+        }
+        
+        .offer-box-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .offer-box-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .offer-box-list li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* ==================== CALCULATOR SECTION ==================== */
+        .calculator {
+            background: white;
+            color: var(--dark-text);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin: 3rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+        }
+        
+        .calculator.animate {
+            animation: zoomIn 0.8s ease forwards;
+        }
+        
+        .calculator-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-green);
+        }
+        
+        .calculator-input {
+            margin-bottom: 1.5rem;
+        }
+        
+        .calculator-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .calculator-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--orange));
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .calculator-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .calculator-value {
+            display: block;
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-top: 0.5rem;
+        }
+        
+        .calculator-results {
+            background: var(--light-mint);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .calculator-result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+            font-size: 1.1rem;
+        }
+        
+        .calculator-result-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-green);
+        }
+        
+        .calculator-highlight {
+            background: linear-gradient(135deg, var(--primary-green), var(--orange));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        /* ==================== GUARANTEE SECTION ==================== */
+        .guarantee {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+        
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .guarantee-block {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary-green);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .guarantee-block.animate {
+            animation: fadeInUp 0.6s ease forwards, borderPulse 3s infinite;
+        }
+        
+        .guarantee-block:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px var(--shadow-hover);
+        }
+        
+        .guarantee-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-green);
+        }
+        
+        .guarantee-text {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        /* ==================== FAQ SECTION ==================== */
+        .faq {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow);
+            overflow: hidden;
+            opacity: 0;
+        }
+        
+        .faq-item.animate {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--light-mint);
+            color: var(--primary-green);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            transition: transform 0.3s ease;
+        }
+        
+        details[open] .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #6b7280;
+            line-height: 1.8;
+        }
+        
+        /* ==================== FINAL CTA SECTION ==================== */
+        .final-cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatUpDown 8s ease-in-out infinite;
+        }
+        
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta-benefits {
+            list-style: none;
+            max-width: 700px;
+            margin: 2rem auto 3rem;
+            text-align: left;
+        }
+        
+        .final-cta-benefits li {
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+        }
+        
+        .final-cta-benefits li.animate {
+            animation: slideInLeft 0.6s ease forwards;
+        }
+        
+        .final-cta-benefits li::before {
+            content: '✅';
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .final-cta-form {
+            max-width: 500px;
+            margin: 3rem auto 0;
+            background: white;
+            color: var(--dark-text);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-top: 0.3rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary-green);
+        }
+        
+        .checkbox-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            padding: 0.8rem 1.5rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 0.95rem;
+        }
+        
+        /* ==================== CONFETTI ==================== */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 10000;
+            pointer-events: none;
+        }
+        
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .problem-grid,
+            .solution-grid,
+            .steps-container,
+            .target-grid,
+            .offer-boxes,
+            .guarantee-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator {
+                padding: 2rem 1.5rem;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            /* Optimize HERO animations for mobile performance */
+            .hero::before {
+                animation: infinitySpaceZoom 40s ease-in-out infinite;
+            }
+            
+            .hero::after {
+                animation: infinitySpaceZoomLayer2 50s ease-in-out infinite;
+                filter: blur(5px) brightness(0.7);
+            }
+            
+            /* Optimize PROBLEM video for mobile */
+            .problem-video-bg {
+                filter: blur(1px) brightness(1.1) saturate(1.2);
+                opacity: 0.12;
+            }
+            
+            .problem::after {
+                background: linear-gradient(180deg, 
+                    rgba(255,255,255,0.92) 0%, 
+                    rgba(255,255,255,0.95) 50%,
+                    rgba(255,255,255,0.92) 100%
+                );
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Powrót do góry">↑</button>
+    
+    <!-- HERO SECTION - INFINITY SPACE ZOOM -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Spróbowałeś Wszystkiego<br>Ale żaden system nie był dla Ciebie?</h1>
+                <p class="hero-subtitle">Poznaj elastyczne podejście do żywienia, które zmienia życie bez wyrzeczeń</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">15-30 minut w kuchni</div>
+                    <div class="hero-feature">3 warianty budżetowe</div>
+                    <div class="hero-feature">Dla TWOICH potrzeb</div>
+                </div>
+                
+                <a href="#offer" class="cta-button magnetic-btn">Sprawdź System za 73,99 zł</a>
+            </div>
+            
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+    
+    <!-- PROBLEM SECTION - VIDEO BACKGROUND -->
+    <section class="problem" id="problem">
+        <video class="problem-video-bg" id="problem-video" muted loop playsinline preload="auto">
+            <source src="2.mp4" type="video/mp4">
+        </video>
+        
+        <div class="container">
+            <h2 class="section-title letter-animate">Znasz to uczucie... Próbowałeś już wszystkiego</h2>
+            <p class="section-subtitle">Ale w końcu i tak wracałeś do punktu wyjścia. To NIE Twoja wina.</p>
+            
+            <div class="problem-grid">
+                <div class="info-block">
+                    <div class="info-block-icon">😔</div>
+                    <h3 class="info-block-title">Syndrom "wszystko albo nic"</h3>
+                    <p class="info-block-text">Dieta idealna przez 3 dni, potem jedna pizza i czujesz, że wszystko stracone. W poniedziałek znowu zaczynam...</p>
+                </div>
+                
+                <div class="info-block">
+                    <div class="info-block-icon">📱</div>
+                    <h3 class="info-block-title">Obsesyjne liczenie kalorii</h3>
+                    <p class="info-block-text">Skanowanie każdego posiłku w aplikacji, stres przy wyjściu do restauracji, poczucie winy po każdym "nieplanowanym" kęsie.</p>
+                </div>
+                
+                <div class="info-block">
+                    <div class="info-block-icon">🚫</div>
+                    <h3 class="info-block-title">Izolacja społeczna</h3>
+                    <p class="info-block-text">Nie możesz iść na kolację ze znajomymi, bo "nie wiesz co zamówić". Weekendy u rodziny to tortury. Alkohol? Zapomnij.</p>
+                </div>
+                
+                <div class="info-block">
+                    <div class="info-block-icon">⏰</div>
+                    <h3 class="info-block-title">Brak czasu po pracy</h3>
+                    <p class="info-block-text">Skomplikowane przepisy na 2 godziny gotowania? Po 9h w biurze masz energię tylko na kanapkę i serial.</p>
+                </div>
+                
+                <div class="info-block">
+                    <div class="info-block-icon">😰</div>
+                    <h3 class="info-block-title">Poczucie winy po "wpadkach"</h3>
+                    <p class="info-block-text">Każda "niedozwolona" rzecz kończy się wymówkami i poczuciem porażki. "Nie mam siły woli", "Nigdy mi się nie uda".</p>
+                </div>
+                
+                <div class="info-block">
+                    <div class="info-block-icon">🔄</div>
+                    <h3 class="info-block-title">Syndrom jo-jo</h3>
+                    <p class="info-block-text">95% osób wraca do poprzedniej wagi w ciągu 1-5 lat. Kolejna dieta, kolejna porażka, kolejna próba...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SOLUTION SECTION -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <h2 class="section-title letter-animate">Ten System Jest Inny. Oto Dlaczego</h2>
+            <p class="section-subtitle">Nie kolejna dieta na 2 tygodnie. To kompletny system żywieniowy dopasowany do Twojego REALNEGO życia.</p>
+            
+            <div class="solution-grid">
+                <div class="solution-block">
+                    <span class="solution-emoji">⏱️</span>
+                    <h3 class="solution-title">15-30 minut, nie 2 godziny</h3>
+                    <p class="solution-text">Szybkie posiłki dopasowane do Twojego tempa życia. 12 wariantów posiłków z rotacją 2-tygodniową. Żadnego skomplikowanego gotowania.</p>
+                </div>
+                
+                <div class="solution-block">
+                    <span class="solution-emoji">💰</span>
+                    <h3 class="solution-title">3 warianty budżetowe</h3>
+                    <p class="solution-text">170-450 PLN/tydzień - wybierz wariant dla siebie. Dodatek B pokazuje dokładnie jak dostosować system do każdego budżetu.</p>
+                </div>
+                
+                <div class="solution-block">
+                    <span class="solution-emoji">🍕</span>
+                    <h3 class="solution-title">Pizza/alkohol/restauracje OK</h3>
+                    <p class="solution-text">Dodatek A: Życie Poza Kuchnią - konkretne strategie na restauracje, imprezy, rodzinne spotkania. Żyj normalnie!</p>
+                </div>
+                
+                <div class="solution-block">
+                    <span class="solution-emoji">🔄</span>
+                    <h3 class="solution-title">Bez obsesji</h3>
+                    <p class="solution-text">Przybliżone szacowanie zamiast aplikacji i skanowania. System uczy intuicyjnego wyboru, nie niewolnictwa cyferków.</p>
+                </div>
+                
+                <div class="solution-block">
+                    <span class="solution-emoji">🧠</span>
+                    <h3 class="solution-title">System psychologiczny</h3>
+                    <p class="solution-text">Wpadka ≠ koniec. Rozdział 8 wyjaśnia psychologię "wszystko albo nic" i uczy jak wyjść z tego cyklu raz na zawsze.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-works" id="how-works">
+        <div class="container">
+            <h2 class="section-title letter-animate">Jak Działa Hybrydowy System Żywienia?</h2>
+            <p class="section-subtitle">4 proste kroki do trwałej zmiany</p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Zrozum mechanizmy</h3>
+                    <p class="step-text">11 rozdziałów wyjaśnia DLACZEGO to działa, nie tylko CO jeść. Psychologia jedzenia, metabolizm, 5 systemów dietetycznych - wyciągasz to co działa.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Wybierz swój budżet</h3>
+                    <p class="step-text">3 warianty (minimum 170 PLN/tydzień, komfort 450 PLN/tydzień). Dodatek B pokazuje jak dostosować listy zakupów do Twojej sytuacji finansowej.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Użyj gotowych narzędzi</h3>
+                    <p class="step-text">Kalkulatory makro i kaloryczne, listy zakupów, 12 wariantów posiłków, arkusze do personalizacji. Wszystko gotowe - od zaraz do działania.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Żyj elastycznie</h3>
+                    <p class="step-text">Dodatek A: restauracje, imprezy, rodzina - wszystko wpisane w system. Weekend u teściowej? Dodatek C (25 FAQ) ma odpowiedzi na wszystkie "a co jeśli".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOR WHO SECTION -->
+    <section class="for-who" id="for-who">
+        <div class="container">
+            <h2 class="section-title letter-animate">Ten System Jest Dla Ciebie, Jeśli...</h2>
+            <p class="section-subtitle">Sprawdź, czy to Twój profil</p>
+            
+            <div class="target-grid">
+                <div class="target-card">
+                    <span class="target-emoji">👔</span>
+                    <p class="target-text">Pracujesz 8-9h przed komputerem i masz maksymalnie 30 minut na przygotowanie posiłku</p>
+                </div>
+                
+                <div class="target-card">
+                    <span class="target-emoji">🔄</span>
+                    <p class="target-text">Próbowałeś już keto, low-carb, paleo - bez długotrwałych efektów. Zawsze wracasz do punktu wyjścia</p>
+                </div>
+                
+                <div class="target-card">
+                    <span class="target-emoji">🏋️</span>
+                    <p class="target-text">Trenujesz 3-4x/tydzień i chcesz zachować mięśnie podczas odchudzania, nie stracić formy</p>
+                </div>
+                
+                <div class="target-card">
+                    <span class="target-emoji">🍷</span>
+                    <p class="target-text">Masz życie towarzyskie (restauracje, alkohol, weekendy u rodziny) i nie chcesz się izolować</p>
+                </div>
+                
+                <div class="target-card">
+                    <span class="target-emoji">💸</span>
+                    <p class="target-text">Chcesz oszczędzać na jedzeniu vs fast-foody, catering, diet pudełkowe, codzienne wyjścia</p>
+                </div>
+                
+                <div class="target-card">
+                    <span class="target-emoji">🧠</span>
+                    <p class="target-text">Szukasz zrozumienia "DLACZEGO to działa", nie tylko kolejnej listy "co jeść"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- OFFER SECTION -->
+    <section class="offer" id="offer">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Co Dostajesz w Pakiecie za 73,99 zł?</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Kompletny system żywieniowy + narzędzia gotowe do użycia</p>
+            
+            <div class="offer-boxes">
+                <div class="offer-box">
+                    <h3 class="offer-box-title">📖 Główny Ebook (11 rozdziałów)</h3>
+                    <ul class="offer-box-list">
+                        <li>Psychologia jedzenia i mechanizmy mózgu</li>
+                        <li>5 systemów dietetycznych - co działa, co nie</li>
+                        <li>Hybrydowy system - krok po kroku</li>
+                        <li>Gotowe plany żywieniowe + listy zakupów</li>
+                        <li>Jak wyjść z cyklu "wszystko albo nic"</li>
+                        <li>Metabolizm i trwała utrata wagi</li>
+                    </ul>
+                </div>
+                
+                <div class="offer-box">
+                    <h3 class="offer-box-title">🎁 3 Dodatki Praktyczne</h3>
+                    <ul class="offer-box-list">
+                        <li><strong>Dodatek A:</strong> Życie Poza Kuchnią (restauracje, alkohol, nieoczekiwane sytuacje)</li>
+                        <li><strong>Dodatek B:</strong> Wiele Budżetów, Ten Sam System (170-450 PLN/tydzień)</li>
+                        <li><strong>Dodatek C:</strong> 25 Najczęstszych Pytań - Praktyczne Odpowiedzi</li>
+                    </ul>
+                </div>
+                
+                <div class="offer-box">
+                    <h3 class="offer-box-title">🛠️ Narzędzia Gotowe Do Użycia</h3>
+                    <ul class="offer-box-list">
+                        <li>Kalkulatory makro i kaloryczne</li>
+                        <li>12 wariantów posiłków (rotacja 2 tygodnie)</li>
+                        <li>Arkusze do personalizacji systemu</li>
+                        <li>Szablony tygodniowe</li>
+                        <li>Listy zakupów dla 3 budżetów</li>
+                        <li>Dostęp natychmiastowy po płatności (PDF)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- CALCULATOR -->
+            <div class="calculator">
+                <h3 class="calculator-title">💰 Kalkulator Oszczędności</h3>
+                
+                <div class="calculator-input">
+                    <label class="calculator-label" for="fastfood">Ile wydajesz miesięcznie na fast-foody?</label>
+                    <input type="range" id="fastfood" class="calculator-slider" min="0" max="1000" value="300" step="50">
+                    <span class="calculator-value" id="fastfood-value">300 zł</span>
+                </div>
+                
+                <div class="calculator-input">
+                    <label class="calculator-label" for="restaurants">Ile wydajesz miesięcznie na restauracje?</label>
+                    <input type="range" id="restaurants" class="calculator-slider" min="0" max="2000" value="500" step="50">
+                    <span class="calculator-value" id="restaurants-value">500 zł</span>
+                </div>
+                
+                <div class="calculator-input">
+                    <label class="calculator-label" for="catering">Ile wydajesz miesięcznie na catering/diet pudełkowe?</label>
+                    <input type="range" id="catering" class="calculator-slider" min="0" max="2000" value="0" step="50">
+                    <span class="calculator-value" id="catering-value">0 zł</span>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="calculator-result-row">
+                        <span>Twoje obecne wydatki:</span>
+                        <span id="current-spending">800 zł/miesiąc</span>
+                    </div>
+                    <div class="calculator-result-row">
+                        <span>Z Hybrydowym Systemem (minimum):</span>
+                        <span>680 zł/miesiąc</span>
+                    </div>
+                    <div class="calculator-result-row">
+                        <span>Z Hybrydowym Systemem (komfort):</span>
+                        <span>1800 zł/miesiąc</span>
+                    </div>
+                    <div class="calculator-result-row">
+                        <span>Twoja miesięczna oszczędność:</span>
+                        <span id="savings">120 zł</span>
+                    </div>
+                </div>
+                
+                <div class="calculator-highlight">
+                    ✅ Ebook zwróci Ci się w: <span id="roi-days">18 dni</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#final-cta" class="cta-button magnetic-btn" id="offer-cta">Zacznij Oszczędzać za 73,99 zł</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GUARANTEE SECTION -->
+    <section class="guarantee" id="guarantee">
+        <div class="container">
+            <h2 class="section-title letter-animate">Bez Magicznych Obietnic. Tylko Realne Narzędzia</h2>
+            <p class="section-subtitle">Transparentność zamiast fałszywych obietnic</p>
+            
+            <div class="guarantee-grid">
+                <div class="guarantee-block">
+                    <div class="guarantee-icon">✅</div>
+                    <h3 class="guarantee-title">To NIE jest kolejna dieta na 2 tygodnie</h3>
+                    <p class="guarantee-text">To kompletny system żywieniowy, który uczysz się rozumieć i dostosowywać do swojego życia. Nie tymczasowe rozwiązanie, ale długoterminowa zmiana.</p>
+                </div>
+                
+                <div class="guarantee-block">
+                    <div class="guarantee-icon">✅</div>
+                    <h3 class="guarantee-title">Nie obiecujemy "schudnij 10kg w miesiąc"</h3>
+                    <p class="guarantee-text">Obiecujemy edukację, narzędzia i realny system. Tempo zmiany zależy od Ciebie - my dajemy Ci mapę, Ty decydujesz o trasie.</p>
+                </div>
+                
+                <div class="guarantee-block">
+                    <div class="guarantee-icon">✅</div>
+                    <h3 class="guarantee-title">Format PDF - transparentna decyzja</h3>
+                    <p class="guarantee-text">Zapoznaj się z regulaminem przed zakupem. Kupując ebook cyfrowy (PDF), tracisz prawo odstąpienia od umowy - to jasne zasady od początku.</p>
+                </div>
+                
+                <div class="guarantee-block">
+                    <div class="guarantee-icon">✅</div>
+                    <h3 class="guarantee-title">Transparentność na każdym kroku</h3>
+                    <p class="guarantee-text">Pokazujemy dokładnie co dostajesz - 11 rozdziałów, 3 dodatki, narzędzia, listy. Bez ukrytych "niespodzianek" ani dodatkowych kosztów.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title letter-animate">Najczęściej Zadawane Pytania</h2>
+            <p class="section-subtitle">Masz pytania? Tutaj znajdziesz odpowiedzi</p>
+            
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary class="faq-question">Czy muszę liczyć kalorie w aplikacji?</summary>
+                    <div class="faq-answer">
+                        Nie! System bazuje na przybliżonym szacowaniu i intuicyjnych wyborach. Uczysz się rozpoznawać proporcje i wielkości porcji bez niewolniczego skanowania każdego posiłku. Rozdział 6 wyjaśnia dokładnie jak to działa.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Czy mogę jeść w restauracjach i pić alkohol?</summary>
+                    <div class="faq-answer">
+                        Tak! Dodatek A zawiera konkretne strategie dla restauracji, imprez, alkoholu i nieoczekiwanych sytuacji. System nie wymaga rezygnacji z życia towarzyskiego - uczy jak to wszystko wpasować w swój plan.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Ile czasu zajmuje przygotowanie posiłku?</summary>
+                    <div class="faq-answer">
+                        15-30 minut dzięki gotowym szablonom i 12 wariantom posiłków. Wszystkie przepisy są proste, szybkie i nie wymagają zaawansowanych umiejętności kulinarnych. Idealnie dla osób pracujących 8-9h dziennie.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Czy system działa przy 3 wariantach budżetowych?</summary>
+                    <div class="faq-answer">
+                        Tak! Dodatek B pokazuje jak dostosować system do 170-450 PLN/tydzień. Każdy wariant ma swoje listy zakupów i propozycje posiłków. System jest elastyczny i działa niezależnie od budżetu.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Co jeśli zrobię "wpadkę" (pizza, fast food)?</summary>
+                    <div class="faq-answer">
+                        System uczy, że wpadka ≠ koniec. Rozdział 8 wyjaśnia psychologię "wszystko albo nic" i pokazuje jak wyjść z poczucia winy. Jedna pizza nie niweluje tygodni pracy - uczysz się kontynuować dalej bez paniki.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Czy to działa dla osób trenujących?</summary>
+                    <div class="faq-answer">
+                        Tak! System uwzględnia 3-4 treningi/tydzień i ochronę masy mięśniowej. Rozdział 9 wyjaśnia jak dostosować makroskładniki do aktywności fizycznej i celów treningowych. Możesz budować formę i jednocześnie tracić tkankę tłuszczową.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Czy ebook nadaje się dla osób bez doświadczenia kulinarnego?</summary>
+                    <div class="faq-answer">
+                        Tak! Gotowe listy zakupów, proste przepisy, zero skomplikowanych technik. 12 wariantów posiłków to podstawowe składniki i proste kombinacje. Jeśli potrafisz ugotować makaron, poradzisz sobie z tym systemem.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Czy mogę używać systemu przy nieregularnym harmonogramie?</summary>
+                    <div class="faq-answer">
+                        Tak! To główna przewaga - elastyczność dla pracy zmianowej, podróży, weekendów. Dodatek C (25 FAQ) zawiera scenariusze dla różnych sytuacji życiowych: wyjazdy służbowe, rodzinne spotkania, nieplanowane imprezy.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Co jeśli nie mam czasu/energii po pracy?</summary>
+                    <div class="faq-answer">
+                        Dlatego system ma 12 szybkich wariantów (15-30 minut) i opcję meal prep na weekend. Możesz przygotować część posiłków w wolne dni i tylko podgrzewać w tygodniu. Rozdział 10 pokazuje jak to zorganizować.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">Czy to kolejna modna dieta?</summary>
+                    <div class="faq-answer">
+                        Nie! To hybrydowy system łączący sprawdzone elementy 5 podejść żywieniowych (keto, low-carb, paleo, flexible dieting, intuitive eating). Rozdział 4 analizuje co działa w każdym z nich i buduje spersonalizowany system dla Ciebie.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FINAL CTA SECTION -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2 class="section-title" style="color: white;">Zacznij Dziś. Nie Jutro. Nie W Poniedziałek</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.95);">73,99 zł to mniej niż 3 posiłki w fast foodzie. A co dostajesz w zamian?</p>
+                
+                <ul class="final-cta-benefits">
+                    <li>Kompletny system żywieniowy (nie dieta na 2 tygodnie)</li>
+                    <li>11 rozdziałów + 3 dodatki praktyczne</li>
+                    <li>Gotowe plany + listy zakupów</li>
+                    <li>12 wariantów posiłków (15-30 minut)</li>
+                    <li>3 warianty budżetowe (170-450 PLN/tydzień)</li>
+                    <li>Elastyczność życia towarzyskiego</li>
+                    <li>Dostęp natychmiastowy po płatności</li>
+                </ul>
+                
+                <div class="final-cta-form">
+                    <a href="#" class="cta-button magnetic-btn" id="final-cta-btn" style="width: 100%; text-align: center;">Kup Teraz za 73,99 zł</a>
+                    
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="terms-checkbox" required>
+                        <label for="terms-checkbox" class="checkbox-label">
+                            Zapoznałem się z regulaminem i rozumiem, że kupując produkt cyfrowy (ebook PDF) tracę prawo odstąpienia od umowy zgodnie z Art. 38 pkt 13 ustawy o prawach konsumenta.
+                        </label>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-method">💳 Stripe</div>
+                        <div class="payment-method">🏦 Przelewy24</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const masterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    
+                    // Letter animation dla section-title
+                    if (entry.target.classList.contains('letter-animate')) {
+                        animateLetters(entry.target);
+                    }
+                    
+                    // Count-up dla benefitów w final-cta
+                    if (entry.target.classList.contains('final-cta-benefits')) {
+                        const items = entry.target.querySelectorAll('li');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('animate');
+                            }, index * 100);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Obserwuj wszystkie animowane elementy
+        document.querySelectorAll('.info-block, .solution-block, .step, .target-card, .offer-box, .calculator, .guarantee-block, .faq-item, .section-title.letter-animate, .final-cta-benefits').forEach(el => {
+            masterObserver.observe(el);
+        });
+        
+        // ==================== LETTER-BY-LETTER ANIMATION ====================
+        function animateLetters(element) {
+            const text = element.textContent;
+            element.innerHTML = '';
+            
+            text.split('').forEach((char, index) => {
+                const span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                span.style.animationDelay = `${index * 0.05}s`;
+                element.appendChild(span);
+            });
+        }
+        
+        // ==================== VIDEO SCROLL-TRIGGERED PLAYBACK ====================
+        const problemVideo = document.getElementById('problem-video');
+        const problemSection = document.getElementById('problem');
+        
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Video włącza się gdy sekcja problem jest widoczna
+                    problemVideo.play().catch(err => {
+                        console.log('Autoplay prevented, trying to play with interaction...');
+                        // Fallback: próba odtworzenia przy pierwszej interakcji użytkownika
+                        document.addEventListener('click', () => {
+                            problemVideo.play();
+                        }, { once: true });
+                    });
+                } else {
+                    // Video pauzuje gdy opuszczamy sekcję
+                    problemVideo.pause();
+                }
+            });
+        }, {
+            threshold: 0.25 // Video włącza się gdy 25% sekcji jest widoczne
+        });
+        
+        if (problemVideo && problemSection) {
+            videoObserver.observe(problemSection);
+            
+            // Preload video dla płynnego odtwarzania
+            problemVideo.load();
+        }
+        
+        // Dodatkowa kontrola playback rate na scroll (optional - dla efektu)
+        let lastScrollTop = 0;
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const sectionRect = problemSection.getBoundingClientRect();
+            
+            // Jeśli sekcja jest w viewport
+            if (sectionRect.top < window.innerHeight && sectionRect.bottom > 0) {
+                const scrollDelta = Math.abs(scrollTop - lastScrollTop);
+                
+                // Reguluj prędkość video na podstawie prędkości scrollowania
+                clearTimeout(scrollTimeout);
+                if (scrollDelta > 3) {
+                    problemVideo.playbackRate = Math.min(1.3, 1 + scrollDelta / 200);
+                    
+                    // Reset do normalnej prędkości po 300ms bez scrollowania
+                    scrollTimeout = setTimeout(() => {
+                        problemVideo.playbackRate = 1;
+                    }, 300);
+                } else {
+                    problemVideo.playbackRate = 1;
+                }
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+        
+        // ==================== CALCULATOR LOGIC ====================
+        const fastfoodSlider = document.getElementById('fastfood');
+        const restaurantsSlider = document.getElementById('restaurants');
+        const cateringSlider = document.getElementById('catering');
+        
+        const fastfoodValue = document.getElementById('fastfood-value');
+        const restaurantsValue = document.getElementById('restaurants-value');
+        const cateringValue = document.getElementById('catering-value');
+        
+        const currentSpending = document.getElementById('current-spending');
+        const savings = document.getElementById('savings');
+        const roiDays = document.getElementById('roi-days');
+        
+        function updateCalculator() {
+            const ff = parseInt(fastfoodSlider.value);
+            const rest = parseInt(restaurantsSlider.value);
+            const cat = parseInt(cateringSlider.value);
+            
+            fastfoodValue.textContent = `${ff} zł`;
+            restaurantsValue.textContent = `${rest} zł`;
+            cateringValue.textContent = `${cat} zł`;
+            
+            const total = ff + rest + cat;
+            currentSpending.textContent = `${total} zł/miesiąc`;
+            
+            const systemCostMin = 680;
+            const savedAmount = total - systemCostMin;
+            
+            if (savedAmount > 0) {
+                savings.textContent = `${savedAmount} zł`;
+                const ebookPrice = 73.99;
+                const daysToROI = Math.ceil((ebookPrice / savedAmount) * 30);
+                roiDays.textContent = `${daysToROI} dni`;
+            } else {
+                savings.textContent = '0 zł (wybierz wyższy budżet systemowy)';
+                roiDays.textContent = '-';
+            }
+        }
+        
+        fastfoodSlider.addEventListener('input', updateCalculator);
+        restaurantsSlider.addEventListener('input', updateCalculator);
+        cateringSlider.addEventListener('input', updateCalculator);
+        
+        updateCalculator();
+        
+        // ==================== PROGRESS BAR ====================
+        const progressFill = document.querySelector('.progress-fill');
+        
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            progressFill.style.width = `${scrollPercent}%`;
+        }, { passive: true });
+        
+        // ==================== BACK TO TOP BUTTON ====================
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }, { passive: true });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // ==================== SMOOTH SCROLL ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // ==================== MAGNETIC BUTTON EFFECT ====================
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+        
+        // ==================== CONFETTI EFFECT ====================
+        function createConfetti() {
+            const colors = ['#10b981', '#f97316', '#a7f3d0', '#ea580c'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+                
+                document.body.appendChild(confetti);
+                
+                confetti.style.animation = 'confettiFall 3s ease-out forwards';
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+        
+        document.getElementById('final-cta-btn').addEventListener('click', (e) => {
+            const checkbox = document.getElementById('terms-checkbox');
+            if (!checkbox.checked) {
+                e.preventDefault();
+                alert('Proszę zaakceptować regulamin przed zakupem.');
+                return;
+            }
+            
+            createConfetti();
+            
+            // Tutaj dodasz faktyczny link do systemu płatności (Stripe/Przelewy24)
+            // np. window.location.href = 'https://twoj-link-platnosci.com';
+        });
+        
+        document.getElementById('offer-cta').addEventListener('click', (e) => {
+            createConfetti();
+        });
+        
+        // ==================== SCROLL INDICATOR ====================
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('.problem').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // ==================== PERFORMANCE OPTIMIZATIONS ====================
+        // Disconnect observer po zakończeniu wszystkich animacji
+        let animatedElements = 0;
+        const totalElements = document.querySelectorAll('.info-block, .solution-block, .step, .target-card, .offer-box, .calculator, .guarantee-block, .faq-item').length;
+        
+        const performanceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animatedElements++;
+                    if (animatedElements >= totalElements) {
+                        performanceObserver.disconnect();
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.info-block, .solution-block, .step, .target-card, .offer-box, .calculator, .guarantee-block, .faq-item').forEach(el => {
+            performanceObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
